@@ -184,7 +184,7 @@ class Program
     static Vector3 RandomInUnitSphere()
     {
         Random random = new Random();
-        while (true)
+        while (true) // could this be optimized?
         {
             Vector3 p = new Vector3((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble()) * 2.0f - new Vector3(1, 1, 1);
             if (p.Dot(p) >= 1.0f) continue;
