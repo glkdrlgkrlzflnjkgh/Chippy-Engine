@@ -1,0 +1,6 @@
+﻿1. install .net framework 8.0 or higher.
+2. if you don't have it, visual studio 2022.
+3. open the .sln file in visual studio 2022.
+4. press control+B to start a build, it shouldn't take long.
+5. find the .exe, double click it
+6. congrats! You've just built and ran my project!
