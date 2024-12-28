@@ -160,7 +160,6 @@ class Program
                 }
             }
         }
-        
         Console.WriteLine("Rendering complete. Output saved to 'output.ppm'.");
     }
 
