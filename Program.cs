@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Diagnostics;
+using System.Drawing.Imaging;
 namespace MainTracer
 {
     public static class MemoryUsage
