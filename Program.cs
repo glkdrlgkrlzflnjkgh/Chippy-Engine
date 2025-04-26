@@ -137,8 +137,6 @@ namespace MainTracer
             Vector3 vertical = new Vector3(0.0f, 2.0f, 0.0f);
             Vector3 origin = new Vector3(0.0f, 0.0f, 0.0f);
 
-            Sphere sphere1 = new Sphere(new Vector3(0, 0, -1), 0.5f);
-            Sphere sphere2 = new Sphere(new Vector3(-6f, 4f, 0f), 0.9f);
 
             using (StreamWriter writer = new StreamWriter("output.ppm"))
             {
