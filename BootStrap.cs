@@ -4,7 +4,7 @@ using MainTracer;
 namespace MainProg {
     public class BootStrap {
         static void Main(string[] args)
-        {
+        {   string OutPutName = String.Empty;
             int imageWidth = 800;
             int imageHeight = 400;
             int samplesPerPixel = int.Parse(Console.ReadLine()); // Number of samples per pixel for better quality
@@ -15,8 +15,9 @@ namespace MainProg {
 
             Sphere sphere1 = new Sphere(new Vector3(0, 0, -1), 0.5f);
             Sphere sphere2 = new Sphere(new Vector3(-6f, 4f, 0f), 0.9f);
-
-            using (StreamWriter writer = new StreamWriter("output.ppm"))
+            Console.Write("What should the output file be called? ");
+            OutPutName = Console.ReadLine();
+            using (StreamWriter writer = new StreamWriter(OutPutName+".ppm"))
             {
                 writer.WriteLine($"P3\n{imageWidth} {imageHeight}\n255");
 
