@@ -1,63 +1,56 @@
-name: .NET Core Desktop
+name: Build and Deploy
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:
+      - main
 
 jobs:
-
   build:
+    runs-on: windows-latest  # ✅ Optimized for Windows runners!
 
     strategy:
       matrix:
         configuration: [Debug, Release]
 
-    runs-on: windows-latest  
-
-    env:
-      Solution_Name: RTX.sln  
-      Test_Project_Path: your-test-project-path  
-      DOTNET_ROOT: C:\Program Files\dotnet
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+        
+      - name: Restore dependencies
+        run: dotnet restore RTX.sln
 
-    # Install .NET Core
-    - name: Install .NET Core
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
+      - name: Build application
+        run: dotnet build RTX.sln --configuration ${{ matrix.configuration }} --no-restore
 
-    # Setup MSBuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v2
+      - name: Install GitHub CLI
+        run: winget install GitHub.cli
 
-    # Restore the application
-    - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
+      - name: Capture Run ID (PowerShell)
+        run: |
+          $RUN_ID = gh run list --repo glkdrlgkrlzflnjkgh/Path-Traced-Render-Engine --json id --jq ".[0].id"
+          echo "RUN_ID=$RUN_ID" | Out-File -FilePath $env:GITHUB_ENV -Append
+      
+      - name: Delete previous artifacts (PowerShell)
+        run: gh run delete $env:RUN_ID --repo glkdrlgkrlzflnjkgh/Path-Traced-Render-Engine --yes
 
-    # Build the project
-    - name: Build the application
-      run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
+      - name: Upload new artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: "Build_Output_${{ github.run_number }}"
+          path: .\bin\${{ matrix.configuration }}
 
-    # Remove existing artifact if it exists
-    - name: Delete previous artifacts
-      run: gh run delete "Build Output" --repo ${{ github.repository }} 
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Post-Install .NET Core tasks
+        run: |
+          dotnet --info
+          echo "Post-install checks completed."
 
-    # Upload new build artifacts
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: "Build_Output_${{ github.run_number }}"
-        path: ./bin/${{ matrix.configuration }}
+      - name: Post-checkout cleanup
+        run: |
+          Remove-Item -Recurse -Force .\temp\*
+          echo "Workspace cleaned up."
