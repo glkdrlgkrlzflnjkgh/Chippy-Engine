@@ -131,7 +131,7 @@ namespace MainTracer
         {
             int imageWidth = 800;
             int imageHeight = 400;
-            int samplesPerPixel = 100; // Number of samples per pixel for better quality
+            int samplesPerPixel = int.Parse(Console.ReadLine()); // Number of samples per pixel for better quality
             Vector3 lowerLeftCorner = new Vector3(-2.0f, -1.0f, -1.0f);
             Vector3 horizontal = new Vector3(4.0f, 0.0f, 0.0f);
             Vector3 vertical = new Vector3(0.0f, 2.0f, 0.0f);
