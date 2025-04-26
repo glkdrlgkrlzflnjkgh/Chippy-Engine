@@ -17,8 +17,8 @@ jobs:
     runs-on: windows-latest  
 
     env:
-      Solution_Name: RTX.sln  # Keeping only the relevant solution file.
-      Test_Project_Path: your-test-project-path  # Optional, remove if unnecessary.
+      Solution_Name: RTX.sln  
+      Test_Project_Path: your-test-project-path  
       DOTNET_ROOT: C:\Program Files\dotnet
 
     steps:
@@ -49,9 +49,15 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
 
-    # Upload build artifacts
+    # Remove existing artifact if it exists
+    - name: Delete previous artifacts
+      run: gh run artifact delete "Build Output" --repo ${{ github.repository }} --confirm
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    # Upload new build artifacts
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: Build Output
+        name: "Build_Output_${{ github.run_number }}"
         path: ./bin/${{ matrix.configuration }}
