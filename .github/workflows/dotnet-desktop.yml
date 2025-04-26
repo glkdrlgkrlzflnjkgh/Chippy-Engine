@@ -51,7 +51,7 @@ jobs:
 
     # Remove existing artifact if it exists
     - name: Delete previous artifacts
-      run: gh run artifact delete "Build Output" --repo ${{ github.repository }} 
+      run: gh run delete "Build Output" --repo ${{ github.repository }} 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
