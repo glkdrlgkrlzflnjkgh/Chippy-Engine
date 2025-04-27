@@ -9,10 +9,6 @@ jobs:
   build:
     runs-on: windows-latest  # ✅ Optimized for Windows runners!
 
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -21,37 +17,17 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-        
+      
       - name: Restore dependencies
         run: dotnet restore RTX.sln
 
       - name: Build application
-        run: dotnet build RTX.sln --configuration ${{ matrix.configuration }} --no-restore
+        run: dotnet build RTX.sln --configuration Release --no-restore
 
-      - name: Install GitHub CLI
-        run: winget install GitHub.cli
-
-      # - name: Delete previous artifacts (PowerShell)
-      #   shell: pwsh
-      #   run: |
-      #     $RUN_ID = gh run list --repo glkdrlgkrlzflnjkgh/Path-Traced-Render-Engine --json id --jq ".[0].id"
-      #     if ($RUN_ID) {
-      #         gh run delete $RUN_ID --repo glkdrlgkrlzflnjkgh/Path-Traced-Render-Engine --confirm
-      #     } else {
-      #         Write-Host "No previous run ID found."
-
-      - name: Upload new artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: "Build_Output_${{ github.run_number }}"
-          path: .\bin\${{ matrix.configuration }}
-
+      - name: Move executable to release folder
+        run: |
+          mkdir -p release
+          mv .\bin\Release\RTX.exe .\release\RTX.exe
+      
       - name: Post-Install .NET Core tasks
-        run: |
-          dotnet --info
-          echo "Post-install checks completed."
-
-      - name: Post-checkout cleanup
-        run: |
-          Remove-Item -Recurse -Force .\temp\*
-          echo "Workspace cleaned up."
+        run: dotnet --info
