@@ -7,7 +7,7 @@
 | Version | Supported          |
 | ------- | ------------------ |
 | 0       | :x:                |
-| 1       | ✔️:                |
+| 1       | ✔️                 |
 
 
 ## How to report a security bug
