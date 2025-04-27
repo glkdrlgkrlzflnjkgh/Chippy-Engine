@@ -11,5 +11,5 @@
 
 
 ## How to report a security bug
-# Go to the bug tracker
-# Report it right away! **I NEED TO KNOW AS SOON AS POSSIBLE**
+Go to the bug tracker
+Report it right away! **I NEED TO KNOW AS SOON AS POSSIBLE**
