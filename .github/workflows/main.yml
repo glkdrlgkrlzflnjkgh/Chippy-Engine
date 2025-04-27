@@ -1,0 +1,33 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest  # ✅ Optimized for Windows runners!
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      
+      - name: Restore dependencies
+        run: dotnet restore RTX.sln
+
+      - name: Build application
+        run: dotnet build RTX.sln --configuration Release --no-restore
+
+      - name: Move executable to release folder
+        run: |
+          mkdir -p release
+          mv .\bin\Release\RTX.exe .\release\RTX.exe
+      
+      - name: Post-Install .NET Core tasks
+        run: dotnet --info
