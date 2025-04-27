@@ -26,7 +26,7 @@ jobs:
       - name: Move executable to release folder
         run: |
            
-            mv .\Build Output/"
+            mv .\Build Output/
       
       - name: Post-Install .NET Core tasks
         run: dotnet --info
