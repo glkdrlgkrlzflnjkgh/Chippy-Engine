@@ -2,8 +2,7 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -11,4 +10,6 @@ currently being supported with security updates.
 | 1       | ✔️:                |
 
 
-
+## How to report a security bug
+# Go to the bug tracker
+# Report it right away! **I NEED TO KNOW AS SOON AS POSSIBLE**
