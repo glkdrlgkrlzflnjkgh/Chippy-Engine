@@ -87,7 +87,7 @@ namespace MainProg
                     }
                 }
             }
-            Console.WriteLine($"\nDONE!. Output saved to '{OutPutName}.ppm'.");
+            Console.WriteLine($"\nDONE! Output saved to '{OutPutName}.ppm'.");
         }
     }
 }
