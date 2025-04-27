@@ -25,8 +25,8 @@ jobs:
 
       - name: Move executable to release folder
         run: |
-          mkdir -p release
-          mv ./Build Output
+            mkdir "Build Output"
+            mv .\bin\Release\RTX.exe "Build Output\RTX.exe"
       
       - name: Post-Install .NET Core tasks
         run: dotnet --info
