@@ -31,13 +31,14 @@ jobs:
       - name: Install GitHub CLI
         run: winget install GitHub.cli
 
-     
-       
-      
-      - name: Delete previous artifacts (PowerShell)
-         $RUN_ID = gh run list --repo glkdrlgkrlzflnjkgh/Path-Traced-Render-Engine --json id --jq ".[0].id"
-          echo "RUN_ID=$RUN_ID" | Out-File -FilePath $env:GITHUB_ENV -Append
-        run: gh run delete $env:RUN_ID --repo glkdrlgkrlzflnjkgh/Path-Traced-Render-Engine 
+      # - name: Delete previous artifacts (PowerShell)
+      #   shell: pwsh
+      #   run: |
+      #     $RUN_ID = gh run list --repo glkdrlgkrlzflnjkgh/Path-Traced-Render-Engine --json id --jq ".[0].id"
+      #     if ($RUN_ID) {
+      #         gh run delete $RUN_ID --repo glkdrlgkrlzflnjkgh/Path-Traced-Render-Engine --confirm
+      #     } else {
+      #         Write-Host "No previous run ID found."
 
       - name: Upload new artifacts
         uses: actions/upload-artifact@v4
