@@ -32,7 +32,7 @@ namespace MainProg
                     samplesPerPixel = In;
                 }
                 catch (FormatException e)
-                {
+                {   Console.WriteLine("oh crap! "+e.Message);
                     SampleSetError();
                 }
             }   
@@ -52,10 +52,10 @@ namespace MainProg
                 return;
             }
             using (StreamWriter writer = new StreamWriter(OutDir + "/" + OutPutName + ".ppm"))
-            {
+            { int PixCount = imageWidth * imageHeight;
                 writer.WriteLine($"P3\n{imageWidth} {imageHeight}\n255");
-                Console.WriteLine($"There are: {imageWidth * imageHeight} pixels in this image");
-
+                Console.WriteLine($"There are: {PixCount} pixels in this image");
+                Console.WriteLine($"There will be: {PixCount*samplesPerPixel} samples in total");
                 int totalPixels = imageWidth * imageHeight;
                 int currentPixel = 0;
 
