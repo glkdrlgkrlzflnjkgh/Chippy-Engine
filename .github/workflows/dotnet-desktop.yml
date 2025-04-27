@@ -37,7 +37,7 @@ jobs:
       - name: Delete previous artifacts (PowerShell)
          $RUN_ID = gh run list --repo glkdrlgkrlzflnjkgh/Path-Traced-Render-Engine --json id --jq ".[0].id"
           echo "RUN_ID=$RUN_ID" | Out-File -FilePath $env:GITHUB_ENV -Append
-        run: gh run delete $env:RUN_ID --repo glkdrlgkrlzflnjkgh/Path-Traced-Render-Engine --yes
+        run: gh run delete $env:RUN_ID --repo glkdrlgkrlzflnjkgh/Path-Traced-Render-Engine 
 
       - name: Upload new artifacts
         uses: actions/upload-artifact@v4
