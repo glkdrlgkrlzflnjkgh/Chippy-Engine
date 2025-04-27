@@ -1,9 +1,8 @@
 name: Build and Deploy
 
 on:
-    workflow_dispatch:
+  workflow_dispatch:
 
- 
 jobs:
   build:
     runs-on: windows-latest  # ✅ Optimized for Windows runners!
@@ -23,7 +22,11 @@ jobs:
       - name: Build application
         run: dotnet build RTX.sln --configuration Release --no-restore
 
-     
-      
+      - name: Upload build artifacts  # 🚀 This ensures your `.exe` is saved!
+        uses: actions/upload-artifact@v4
+        with:
+          name: RTX-build
+          path: ./bin/Release/
+
       - name: Post-Install .NET Core tasks
         run: dotnet --info
