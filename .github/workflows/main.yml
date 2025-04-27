@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest  # ✅ Optimized for Windows runners!
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
@@ -22,11 +22,22 @@ jobs:
       - name: Build application
         run: dotnet build RTX.sln --configuration Release --no-restore
 
-      - name: Upload build artifacts  # 🚀 This ensures your `.exe` is saved!
+      - name: Upload build artifacts  # 🚀 Store the `.exe` safely!
         uses: actions/upload-artifact@v4
         with:
           name: RTX-build
           path: ./bin/Release/
 
-      - name: Post-Install .NET Core tasks
-        run: dotnet --info
+  deploy:
+    runs-on: windows-latest
+    needs: build  # 🚀 Waits for the build job to finish first!
+
+    steps:
+      - name: Download build artifacts  # 🔥 Pulls the `.exe` back!
+        uses: actions/download-artifact@v4
+        with:
+          name: RTX-build
+          path: ./artifacts/
+
+      - name: Verify artifact contents  # ✅ Double-check that `.exe` exists
+        run: dir ./artifacts/
