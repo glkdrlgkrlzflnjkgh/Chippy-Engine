@@ -77,18 +77,17 @@ namespace MainProg
 
                         // 🔥 Progress Bar Logic
                         currentPixel++;
-                        if (currentPixel % (totalPixels / 50) == 0) // Update every ~2% progress
+                        if (currentPixel % (totalPixels / 100) == 0) // Update every ~1% progress
                         {
-                            Console.Write("\r[");
-                            int progress = (int)((double)currentPixel / totalPixels * 50);
-                            Console.Write(new string('O', progress));
-                            Console.Write(new string(' ', 50 - progress));
-                            Console.Write($"] {progress * 2}%");
+                            Console.Write("\r Rendering...");
+                            int progress = (int)((double)currentPixel / totalPixels * 100);
+                           
+                            Console.Write($" {progress}%");
                         }
                     }
                 }
             }
-            Console.WriteLine("\nRendering complete. Output saved to 'output.ppm'.");
+            Console.WriteLine($"\nDONE!. Output saved to '{OutPutName}.ppm'.");
         }
     }
 }
