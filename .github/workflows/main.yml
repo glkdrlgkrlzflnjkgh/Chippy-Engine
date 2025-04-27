@@ -37,7 +37,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: RTX-build
-          path: ./artifacts/
+          
+          path: ./
 
       - name: Verify artifact contents  # ✅ Double-check that `.exe` exists
-        run: dir ./artifacts/
+        run: dir ./
