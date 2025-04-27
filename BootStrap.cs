@@ -5,6 +5,9 @@ namespace MainProg {
     public class BootStrap {
         static void Main(string[] args)
         {   string OutPutName = String.Empty;
+            String path = Directory.GetCurrentDirectory();
+            string OutDir = Directory.CreateDirectory(path+"/OutPut").FullName;
+
             int imageWidth = 800;
             int imageHeight = 400;
             int samplesPerPixel = int.Parse(Console.ReadLine()); // Number of samples per pixel for better quality
