@@ -21,7 +21,13 @@ namespace MainProg
             int samplesPerPixel = int.Parse(Console.ReadLine());
             Console.Write("What should the output file be called? ");
             OutPutName = Console.ReadLine();
-
+            if (imageWidth is 1 || imageHeight is 1 || imageWidth is < 1 || imageHeight is < 1) { 
+              
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Width and height must be greater than 1.");
+                Console.ResetColor();
+                return;
+            }
             using (StreamWriter writer = new StreamWriter(OutDir + "/" + OutPutName + ".ppm"))
             {
                 writer.WriteLine($"P3\n{imageWidth} {imageHeight}\n255");
@@ -52,8 +58,8 @@ namespace MainProg
                         {
                             Console.Write("\r[");
                             int progress = (int)((double)currentPixel / totalPixels * 50);
-                            Console.Write(new string('#', progress));
-                            Console.Write(new string('-', 50 - progress));
+                            Console.Write(new string('O', progress));
+                            Console.Write(new string(' ', 50 - progress));
                             Console.Write($"] {progress * 2}%");
                         }
                     }
