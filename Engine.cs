@@ -49,7 +49,7 @@ namespace MainTracer
 
         public override string ToString()
         {
-            return $"({X}, {Y}, {Z})";
+            return $"({X}, {Y}, {Z})"; // so that ToString works with the Vector3 class 
         }
     }
 
