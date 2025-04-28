@@ -3,6 +3,7 @@ using System;
 using MainTracer;
 using System.Drawing.Imaging;
 using System.Threading;
+using RTX;
 
 namespace MainProg
 {
@@ -10,7 +11,9 @@ namespace MainProg
     {
         public static int samplesPerPixel = 0;
         static void Main(string[] args)
-        {
+        {   if (Helper.GetRam() < 8192) { 
+               
+            }
             string OutPutName = String.Empty;
             String path = Directory.GetCurrentDirectory();
             string OutDir = Directory.CreateDirectory(path + "/OutPut").FullName;
