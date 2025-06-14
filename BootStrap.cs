@@ -90,7 +90,9 @@ namespace MainProg
                     }
                 }
             }
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"\nDONE! Output saved to '{OutPutName}.ppm'.");
+            Console.ResetColor();
         }
     }
 }
