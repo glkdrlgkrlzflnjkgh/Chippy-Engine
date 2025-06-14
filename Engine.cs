@@ -52,7 +52,7 @@ namespace MainTracer
             return $"({X}, {Y}, {Z})"; // so that ToString works with the Vector3 class 
         }
         public int[] ToInt() {
-            return new int[] { (int)(X), (int)(Y), (int)(Z) }; // convert to int array, this is useful if we need to ever add a vector3 int type.
+            return new int[] { (int)X, (int)Y, (int)Z }; // convert to int array, this is useful if we need to ever add a vector3 int type.
         }
     }
 
