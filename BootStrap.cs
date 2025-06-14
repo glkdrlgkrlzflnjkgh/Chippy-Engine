@@ -47,8 +47,6 @@ namespace MainProg
             Console.Write("What should the output file be called? ");
             OutPutName = Console.ReadLine();
             if (imageWidth is 1 || imageHeight is 1 || imageWidth is < 1 || imageHeight is < 1) {
-                Console.Beep(3000,320);
-                Console.Beep(3000,320);
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Width and height must be greater than 1.");
                 Console.ResetColor();
