@@ -59,7 +59,7 @@ jobs:
       - name: Commit and Push Build Artifacts
         run: |
           git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.email "ActionsBot@Chippy-Engine.com"
           git add ./build-output/*
           git commit -m "Automated commit: Updated build artifacts"
           git push origin master
