@@ -10,16 +10,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  alert-me:
-    runs-on: self-hosted
-    steps:
-      - name: Send-Alert
-        run: echo "Workflow triggered!"
+  
 
   build:
     runs-on: self-hosted
-    needs:
-      - alert-me
+   
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -41,7 +36,7 @@ jobs:
     runs-on: windows-latest
     needs: 
       - build  # 🚀 Waits for the build job to finish first!
-      - alert-me  # 🚀 Waits for the build job to finish first!
+      
     
     steps:
       - name: Checkout repository  # Clones the repo for committing artifacts!
