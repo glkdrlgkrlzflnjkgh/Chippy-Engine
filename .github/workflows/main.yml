@@ -4,6 +4,11 @@ on:
   workflow_dispatch:
 
 jobs:
+  alert-me:
+    runs-on: windows-latest
+    steps:
+      - name: Send-Alert
+        run: echo "Workflow triggered!" | mail -s "GitHub Runner Alert" your-email@example.com
   build:
     runs-on: windows-latest
 
