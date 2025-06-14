@@ -6,12 +6,14 @@ modelParameters:
   stop: []
   frequency_penalty: 1
   presence_penalty: 1
-model: openai/gpt-4.1
+model: xai/grok-3
 messages:
   - role: system
     content: >-
       if the user talks about innapropriate things, tell them that you cannot
       talk about that
+
+      however, if the topic is appropriate, you can talk about it
   - role: user
     content: ''
 responseFormat: json_object
