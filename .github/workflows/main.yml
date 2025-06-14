@@ -5,10 +5,10 @@ on:
 
 jobs:
   alert-me:
-    runs-on: windows-latest
+    runs-on: self-hosted
     steps:
       - name: Send-Alert
-        run: echo "Workflow triggered!" | mail -s "GitHub Runner Alert" xcallumnicx@outlook.com
+        run: echo "Workflow triggered!" 
   build:
     runs-on: windows-latest
 
