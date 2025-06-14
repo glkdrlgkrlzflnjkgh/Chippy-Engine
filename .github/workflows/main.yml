@@ -18,7 +18,8 @@ jobs:
       
       - name: Restore dependencies
         run: dotnet restore RTX.sln
-
+      - name: tellmerestoreisdone
+        run: echo "restore complete!"
       - name: Build application
         run: dotnet build RTX.sln --configuration Release --no-restore
 
