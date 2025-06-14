@@ -14,7 +14,7 @@ namespace RTX
         /// </summary>
     
         public static double GetRam() { 
-           return MainTracer.MemoryUsage.GetCurrentMemoryUsageInMB();
+           return Engine.MemoryUsage.GetCurrentMemoryUsageInMB();
         }
         /// <summary>
         /// The method that is called when there is not enough RAM to run the program.
