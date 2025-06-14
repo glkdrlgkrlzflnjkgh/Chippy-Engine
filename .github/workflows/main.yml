@@ -31,7 +31,7 @@ jobs:
 
   deploy:
     runs-on: windows-latest
-    needs: build, alertme  # 🚀 Waits for the build job to finish first!
+    needs: build, alert-me  # 🚀 Waits for the build job to finish first!
     
     steps:
       - name: Checkout repository  # Clones the repo for committing artifacts!
