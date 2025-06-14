@@ -1,6 +1,12 @@
 name: Builder
 
 on:
+  push:
+    branches:
+      - main  # Replace with the branch you want to monitor
+  pull_request:
+    branches:
+      - main  # Runs when a PR targets the main branch
   workflow_dispatch:
 
 jobs:
