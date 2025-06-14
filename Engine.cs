@@ -2,7 +2,7 @@
 using System.IO;
 using System.Diagnostics;
 using System.Drawing.Imaging;
-namespace MainTracer
+namespace Engine
 {
     public static class MemoryUsage
     {

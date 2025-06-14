@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System;
-using MainTracer;
+using Engine;
 using System.Drawing.Imaging;
 using System.Threading;
 using RTX;
@@ -70,7 +70,7 @@ namespace MainProg
                             float u = (float)(i + Random.Shared.NextDouble()) / (imageWidth - 1);
                             float v = (float)(j + Random.Shared.NextDouble()) / (imageHeight - 1);
                             Ray ray = new Ray(new Vector3(0, 0, 0), new Vector3(-2.0f, -1.0f, -1.0f) + u * new Vector3(4.0f, 0.0f, 0.0f) + v * new Vector3(0.0f, 2.0f, 0.0f));
-                            color += Engine.RayColor(ray, new Sphere(new Vector3(0, 0, -1), 0.5f), new Sphere(new Vector3(-6f, 4f, 0f), 0.9f));
+                            color += Engine.Engine.RayColor(ray, new Sphere(new Vector3(0, 0, -1), 0.5f), new Sphere(new Vector3(-6f, 4f, 0f), 0.9f));
                         }
                         color /= samplesPerPixel;
                         color = new Vector3((float)Math.Sqrt(color.X), (float)Math.Sqrt(color.Y), (float)Math.Sqrt(color.Z));
