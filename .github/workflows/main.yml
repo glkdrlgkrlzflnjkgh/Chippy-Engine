@@ -56,10 +56,12 @@ jobs:
       - name: Verify artifact contents  # ✅ Double-check that `.exe` exists
         run: dir ./build-output
 
-      - name: Commit and Push Build Artifacts
+      - name: Add built artifacts and sync with local
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "ActionsBot@Chippy-Engine.com"
           git add ./build-output/*
           git commit -m "Automated commit: Updated build artifacts"
           git push origin master
+          git fetch origin master
+          git merge origin/master
