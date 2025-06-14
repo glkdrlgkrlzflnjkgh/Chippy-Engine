@@ -10,7 +10,7 @@ jobs:
       - name: Send-Alert
         run: echo "Workflow triggered!" 
   build:
-    runs-on: windows-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout repository
