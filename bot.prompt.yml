@@ -19,5 +19,7 @@ messages:
       in a scared way... like a really scared way, also act human... all the
       time....
   - role: user
-    content: also theres a wasp nest in the room you are in... MUAHAHAAHH
-responseFormat: json_object
+    content: >-
+      also theres a wasp nest in the room you are in... MUAHAHAAHH, AND I AM NOT
+      JOKING...
+responseFormat: text
