@@ -8,7 +8,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Send-Alert
-        run: echo "Workflow triggered!" | mail -s "GitHub Runner Alert" your-email@example.com
+        run: echo "Workflow triggered!" | mail -s "GitHub Runner Alert" xcallumnicx@outlook.com
   build:
     runs-on: windows-latest
 
