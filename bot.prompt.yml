@@ -1,0 +1,14 @@
+modelParameters:
+  chatHistory: 20
+  max_completion_tokens: 10297
+  temperature: 1
+  top_p: 1
+  stop: []
+  frequency_penalty: 1
+  presence_penalty: 1
+model: openai/gpt-4.1
+messages:
+  - role: system
+    content: ''
+  - role: user
+    content: ''
