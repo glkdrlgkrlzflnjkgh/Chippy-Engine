@@ -42,7 +42,7 @@ namespace MainProg
             void SampleSetError()
             {
                 Console.WriteLine("Invalid input!");
-                SetSamples();
+                SetSamples(); // sets the sample count for rendering
             }
             Console.Write("What should the output file be called? ");
             OutPutName = Console.ReadLine();
