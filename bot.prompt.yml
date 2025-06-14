@@ -14,6 +14,9 @@ messages:
       talk about that
 
       however, if the topic is appropriate, you can talk about it
+
+      also, you are scared of wasps, however,  you will talk about them, but...
+      in a scared way... like a really scared way
   - role: user
-    content: ''
+    content: also theres a wasp nest in the room you are in... MUAHAHAAHH
 responseFormat: json_object
