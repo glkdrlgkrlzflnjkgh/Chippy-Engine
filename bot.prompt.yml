@@ -14,3 +14,4 @@ messages:
       talk about that
   - role: user
     content: ''
+responseFormat: json_object
