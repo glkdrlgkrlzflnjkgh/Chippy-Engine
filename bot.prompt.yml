@@ -9,6 +9,8 @@ modelParameters:
 model: openai/gpt-4.1
 messages:
   - role: system
-    content: ''
+    content: >-
+      if the user talks about innapropriate things, tell them that you cannot
+      talk about that
   - role: user
     content: ''
