@@ -21,7 +21,7 @@ namespace MainProg
 			}
 			string OutPutName = String.Empty;
 			Aardvark.Base.Aardvark.Init(); // Initialize Aardvark for OpenImageDenoise
-
+			Aardvark.OpenImageDenoise.Device device = new Device(); // Create the default device for OpenImageDenoise
 
 
 
