@@ -11,7 +11,8 @@
           "Aardvark.OpenImageDenoise": "0.3.2",
           "FSharp.Core": "9.0.300",
           "Hardware.Info": "101.0.1",
-          "System.Drawing.Common": "9.0.0"
+          "System.Drawing.Common": "9.0.0",
+          "inteltbb.redist.win": "2022.1.0.426"
         },
         "runtime": {
           "RTX.dll": {}
@@ -177,6 +178,40 @@
           "lib/netstandard2.0/Hardware.Info.dll": {
             "assemblyVersion": "101.0.1.0",
             "fileVersion": "101.0.1.0"
+          }
+        }
+      },
+      "inteltbb.redist.win/2022.1.0.426": {
+        "runtimeTargets": {
+          "runtimes/win-x64/native/tbb12.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "2022.1.0.0"
+          },
+          "runtimes/win-x64/native/tbbbind.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "2022.1.0.0"
+          },
+          "runtimes/win-x64/native/tbbbind_2_0.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "2022.1.0.0"
+          },
+          "runtimes/win-x64/native/tbbbind_2_5.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "2022.1.0.0"
+          },
+          "runtimes/win-x64/native/tbbmalloc.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "2022.1.0.0"
+          },
+          "runtimes/win-x64/native/tbbmalloc_proxy.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "2022.1.0.0"
           }
         }
       },
@@ -579,6 +614,13 @@
       "sha512": "sha512-eJaEk/6reCxXaatJYmJUjrv764LnWlkOhBHo+yOG2ZFLNYXwPIO1xzEiKtDckqXdNaw5YHgrT20C1GQ1r+WQRw==",
       "path": "hardware.info/101.0.1",
       "hashPath": "hardware.info.101.0.1.nupkg.sha512"
+    },
+    "inteltbb.redist.win/2022.1.0.426": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NGN+L6dwOppYChiUOVpVASkvRSEuc0dCn+/6Y3AMZe8lPRMItMtVdm8BCWUXRtw1upmgxiXfZ5QJlGM4XyG8Pg==",
+      "path": "inteltbb.redist.win/2022.1.0.426",
+      "hashPath": "inteltbb.redist.win.2022.1.0.426.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/5.0.0": {
       "type": "package",
