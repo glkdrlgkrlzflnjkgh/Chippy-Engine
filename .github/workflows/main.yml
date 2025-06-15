@@ -32,7 +32,7 @@ jobs:
           path: ./bin/Release/
 
   deploy:
-    runs-on: windows-latest
+    runs-on: self-hosted
     needs: 
       - build # 🚀 Waits for the build job to finish first!
     steps:
