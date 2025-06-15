@@ -24,7 +24,7 @@ jobs:
 
       - name: Move build artifacts to expected location
         run: |
-          mkdir -p ./build-output
+          mkdir -p ./build-output -force
           mv ./bin/Release/* ./build-output/
 
       - name: Upload build artifacts
