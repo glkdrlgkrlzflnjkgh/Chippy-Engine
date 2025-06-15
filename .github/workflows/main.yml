@@ -18,8 +18,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: restoreNuGet
-        run: nuget restore RTX.sln
+     
       - name: Restore dependencies
         run: dotnet restore RTX.sln
         
