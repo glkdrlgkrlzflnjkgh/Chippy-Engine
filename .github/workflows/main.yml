@@ -24,8 +24,8 @@ jobs:
 
       - name: Move build artifacts to expected location
         run: |
-          echo "moving the artifacts to their expected location!"
-          mv ./bin/Release/* ./build-output/
+         echo "Moving artifacts to their expected location..."
+         Get-ChildItem -Path "./bin/Release/" | Move-Item -Destination "./build-output/" -Force
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
