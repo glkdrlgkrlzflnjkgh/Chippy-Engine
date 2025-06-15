@@ -9,6 +9,7 @@
       "RTX/1.0.0": {
         "dependencies": {
           "Aardvark.OpenImageDenoise": "0.3.2",
+          "FSharp.Core": "9.0.300",
           "Hardware.Info": "101.0.1",
           "System.Drawing.Common": "9.0.0"
         },
@@ -34,7 +35,7 @@
         "dependencies": {
           "Aardvark.Base": "5.3.0",
           "Aardvark.Base.TypeProviders": "4.5.15",
-          "FSharp.Core": "8.0.100",
+          "FSharp.Core": "9.0.300",
           "FSharp.Data.Adaptive": "1.2.0",
           "FsPickler": "5.3.2",
           "System.Dynamic.Runtime": "4.3.0"
@@ -58,7 +59,7 @@
         "dependencies": {
           "Aardvark.Base": "5.3.0",
           "Aardvark.Base.FSharp": "5.3.0",
-          "FSharp.Core": "8.0.100"
+          "FSharp.Core": "9.0.300"
         },
         "runtime": {
           "lib/netstandard2.0/Aardvark.Base.Tensors.CSharp.dll": {
@@ -73,7 +74,7 @@
       },
       "Aardvark.Base.TypeProviders/4.5.15": {
         "dependencies": {
-          "FSharp.Core": "8.0.100"
+          "FSharp.Core": "9.0.300"
         },
         "runtime": {
           "lib/netstandard2.0/Aardvark.Base.TypeProviders.dll": {
@@ -93,11 +94,11 @@
           }
         }
       },
-      "FSharp.Core/8.0.100": {
+      "FSharp.Core/9.0.300": {
         "runtime": {
           "lib/netstandard2.1/FSharp.Core.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.1.23.52306"
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.3.25.18101"
           }
         },
         "resources": {
@@ -144,7 +145,7 @@
       },
       "FSharp.Data.Adaptive/1.2.0": {
         "dependencies": {
-          "FSharp.Core": "8.0.100",
+          "FSharp.Core": "9.0.300",
           "System.Reflection.Emit.Lightweight": "4.6.0"
         },
         "runtime": {
@@ -156,7 +157,7 @@
       },
       "FsPickler/5.3.2": {
         "dependencies": {
-          "FSharp.Core": "8.0.100",
+          "FSharp.Core": "9.0.300",
           "System.Reflection.Emit.Lightweight": "4.6.0"
         },
         "runtime": {
@@ -551,12 +552,12 @@
       "path": "aardvark.openimagedenoise/0.3.2",
       "hashPath": "aardvark.openimagedenoise.0.3.2.nupkg.sha512"
     },
-    "FSharp.Core/8.0.100": {
+    "FSharp.Core/9.0.300": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ZOVZ/o+jI3ormTZOa28Wh0tSRoyle1f7lKFcUN61sPiXI7eDZu8eSveFybgTeyIEyW0ujjp31cp7GOglDgsNEg==",
-      "path": "fsharp.core/8.0.100",
-      "hashPath": "fsharp.core.8.0.100.nupkg.sha512"
+      "sha512": "sha512-TVt2J7RCE1KCS2IaONF+p8/KIZ1eHNbW+7qmKF6hGoD4tXl+o07ja1mPtFjMqRa5uHMFaTrGTPn/m945WnDLiQ==",
+      "path": "fsharp.core/9.0.300",
+      "hashPath": "fsharp.core.9.0.300.nupkg.sha512"
     },
     "FSharp.Data.Adaptive/1.2.0": {
       "type": "package",
