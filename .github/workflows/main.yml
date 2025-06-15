@@ -3,10 +3,10 @@ name: Builder
 on:
   push:
     branches:
-      - master
+      - master # Replace with the branch you want to monitor
   pull_request:
     branches:
-      - master
+      - master # Runs when a PR targets the main branch
   workflow_dispatch:
 
 jobs:
@@ -19,17 +19,41 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore RTX.sln
 
+      - name: tellmerestoreisdone
+        run: echo "restore complete!"
+
       - name: Build application
         run: dotnet build RTX.sln --configuration Release --no-restore
 
-      - name: Move build artifacts to expected location
-        run: |
-          del ./build-output
-          mkdir ./build-output
-          mv ./bin/Release/* ./build-output/
-
-      - name: Upload build artifacts
+      - name: Upload build artifacts # 🚀 Store the `.exe` safely!
         uses: actions/upload-artifact@v4
         with:
           name: RTX-build
-          path: ./build-output/
+          path: ./bin/Release/
+
+  deploy:
+    runs-on: windows-latest
+    needs: - build # 🚀 Waits for the build job to finish first!
+    steps:
+      - name: Checkout repository # Clones the repo for committing artifacts!
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download build artifacts # 🔥 Pulls the `.exe` back!
+        uses: actions/download-artifact@v4
+        with:
+          name: RTX-build
+          path: ./build-output
+
+      - name: Verify artifact contents # ✅ Double-check that `.exe` exists
+        run: dir ./build-output
+
+      - name: Add built artifacts and sync with local
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "ActionsBot@Chippy-Engine.com"
+          git add ./build-output/*
+          git commit -m "Automated commit: Updated build artifacts"
+          git push origin master
+          git pull origin master
