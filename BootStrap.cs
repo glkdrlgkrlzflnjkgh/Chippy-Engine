@@ -4,7 +4,7 @@ using Engine;
 using System.Drawing.Imaging;
 using System.Threading;
 using RTX;
-
+using Aardvark.OpenImageDenoise;
 namespace MainProg
 {
     public class BootStrap
