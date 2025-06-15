@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-   build:
+  build:
     runs-on: self-hosted
     steps:
       - name: Checkout repository
@@ -22,27 +22,13 @@ jobs:
       - name: Build application
         run: dotnet build RTX.sln --configuration Release --no-restore
 
-      - name: Ensure clean build-output directory
+      - name: Move build artifacts to expected location
         run: |
-          echo "Cleaning build-output directory..."
-          if (Test-Path "./build-output/") { Remove-Item -Recurse -Force "./build-output/" }
-          mkdir "./build-output/"
-
-      - name: Move build artifacts
-        run: |
-          echo "Moving artifacts to build-output..."
-          Get-ChildItem -Path "./bin/Release/" -File | Move-Item -Destination "./build-output/" -Force
+          mkdir -p ./build-output
+          mv ./bin/Release/* ./build-output/
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: RTX-build
           path: ./build-output/
-
-      - name: Commit and push build artifacts
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "ActionsBot@Chippy-Engine.com"
-          git add ./build-output/*
-          git commit -m "Automated commit: Updated build artifacts"
-          git push origin master
