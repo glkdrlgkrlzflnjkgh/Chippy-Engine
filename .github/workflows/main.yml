@@ -25,6 +25,7 @@ jobs:
       - name: Move build artifacts to expected location
         run: |
           del ./build-output
+          mkdir ./build-output
           mv ./bin/Release/* ./build-output/
 
       - name: Upload build artifacts
