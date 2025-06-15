@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-     
+
       - name: Restore dependencies
         run: dotnet restore RTX.sln
 
@@ -39,7 +39,16 @@ jobs:
 
       - name: Get latest tag
         id: get_latest_tag
-        run: echo "LATEST_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV || echo "LATEST_TAG=0.0.0" >> $GITHUB_ENV
+        run: |
+          TAG=$(git tag --sort=-version:refname | head -n 1)
+          echo "LATEST_TAG=${TAG:-v0.0.0}" >> $GITHUB_ENV
+
+      - name: Validate tag format
+        run: |
+          if [[ ! "$LATEST_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Error: Invalid tag format! Expected vX.Y.Z"
+            exit 1
+          fi
 
       - name: Generate new tag
         id: generate_tag
@@ -63,4 +72,3 @@ jobs:
           draft: false
           prerelease: false
           files: ./bin/Release/*
-
