@@ -8,11 +8,13 @@ using Aardvark.OpenImageDenoise;
 namespace MainProg
 {
     public class BootStrap
-    {
-        public static int samplesPerPixel = 0;
+    {	 
+		public static int samplesPerPixel = 0;
         static void Main(string[] args)
-        {   if (Helper.GetRam() < 8192) { 
-               Helper.NotEnoughRam(); // If there is not enough RAM, this method will be called and the program will exit.
+        {
+			Helper helper = new Helper(); // This is used to access the helper methods.
+			if (helper.GetRam() < 8192) { 
+               helper.NotEnoughRam(); // If there is not enough RAM, this method will be called and the program will exit.
 			}
             string OutPutName = String.Empty;
 			Aardvark.OpenImageDenoise.Device device = new Aardvark.OpenImageDenoise.Device();
