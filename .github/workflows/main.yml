@@ -18,9 +18,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+     
       - name: Restore dependencies
         run: dotnet restore RTX.sln
+        
+     
+         
       - name: tellmerestoreisdone
         run: echo "restore complete!"
       - name: Build application
