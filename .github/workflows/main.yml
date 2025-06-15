@@ -22,11 +22,16 @@ jobs:
       - name: Build application
         run: dotnet build RTX.sln --configuration Release --no-restore
 
+      - name: Move build artifacts to expected location
+        run: |
+          mkdir -p ./build-output
+          mv ./bin/Release/* ./build-output/
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: RTX-build
-          path: ./bin/Release/
+          path: ./build-output/
 
   tag_and_release:
     runs-on: ubuntu-latest
@@ -35,7 +40,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Ensures all tags are fetched
+          fetch-depth: 0  # Fetch all tags
 
       - name: Get latest tag
         id: get_latest_tag
@@ -63,6 +68,12 @@ jobs:
           git tag $NEW_TAG
           git push origin $NEW_TAG
 
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: RTX-build
+          path: ./build-output/
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
@@ -71,4 +82,4 @@ jobs:
           body: "Automated release from GitHub Actions"
           draft: false
           prerelease: false
-          files: ./bin/Release/*
+          files: ./build-output/*
