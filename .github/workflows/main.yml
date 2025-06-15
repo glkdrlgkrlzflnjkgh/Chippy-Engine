@@ -22,7 +22,7 @@ jobs:
       - name: Build application
         run: dotnet build RTX.sln --configuration Release --no-restore
 
-      - name: Ensure build-output is clean
+      - name: Ensure clean build-output directory
         run: |
           echo "Cleaning build-output directory..."
           if (Test-Path "./build-output/") { Remove-Item -Recurse -Force "./build-output/" }
@@ -88,4 +88,6 @@ jobs:
           body: "Automated release from GitHub Actions"
           draft: false
           prerelease: false
-          files: ./build-output/*
+          files: |
+            ./build-output/**/*.exe
+            ./build-output/**/*.dll
