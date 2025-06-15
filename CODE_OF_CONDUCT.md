@@ -1,16 +1,15 @@
-welcome to the chippy engine offical repo!
+# Welcome to the **Chippy Engine** Official Repo! 🚀
 
+Thank you for contributing to Chippy Engine! To keep things running smoothly, please follow these guidelines:
 
+## **Rules for Contributing**
+1️⃣ **Do not modify `main.yml`**  
+   - The workflow file in `.github/workflows/` **must remain unchanged**.  
+     
+2️⃣ **Keep discussions friendly**  
+   - Stay respectful when using the **Discussions tab**.  
 
+3️⃣ **No malicious PRs**  
+   - Any **pull request (PR)** containing harmful changes **will result in further PRs being rejected**.  
 
-here are the rules of helping out making this engine!
-
-
-RULE #1: please do not make changes to the main.yml file in the workflows folder, as that needs to stay the same
-
-RULE #2: keep the discussions on the discussions tab *friendly*
-
-RULE #3: making a PR* that contains malicous changes will end up with any further PRs from you being rejected
-
-
-*PR means pull request
+🚀 **Let’s build something awesome together!**  
