@@ -13,10 +13,11 @@ namespace MainProg
         static void Main(string[] args)
         {
 			Helper helper = new Helper(); // This is used to access the helper methods.
-			if (helper.GetRam() < 8192) { 
-               helper.NotEnoughRam(); // If there is not enough RAM, this method will be called and the program will exit.
+			Console.WriteLine(helper.GetRam());
+			if (helper.GetRam() < 8) {
+				helper.NotEnoughRam(); // If there is not enough RAM, this method will be called and the program will exit.
 			}
-            string OutPutName = String.Empty;
+			string OutPutName = String.Empty;
 			Aardvark.OpenImageDenoise.Device device = new Aardvark.OpenImageDenoise.Device();
 			
 			String path = Directory.GetCurrentDirectory();
