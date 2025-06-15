@@ -22,10 +22,16 @@ jobs:
       - name: Build application
         run: dotnet build RTX.sln --configuration Release --no-restore
 
-      - name: Move build artifacts to expected location
+      - name: Ensure build-output is clean
         run: |
-         echo "Moving artifacts to their expected location..."
-         Get-ChildItem -Path "./bin/Release/" | Move-Item -Destination "./build-output/" -Force
+          echo "Cleaning build-output directory..."
+          if (Test-Path "./build-output/") { Remove-Item -Recurse -Force "./build-output/" }
+          mkdir "./build-output/"
+
+      - name: Move build artifacts
+        run: |
+          echo "Moving artifacts to build-output..."
+          Get-ChildItem -Path "./bin/Release/" -File | Move-Item -Destination "./build-output/" -Force
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
