@@ -5,9 +5,11 @@ using System.Drawing.Imaging;
 using System.Threading;
 using RTX;
 using Aardvark.OpenImageDenoise;
+using System.Runtime.InteropServices;
 namespace MainProg
 {
-    public class BootStrap
+	
+	public class BootStrap
     {	 
 		public static int samplesPerPixel = 0;
         static void Main(string[] args)
@@ -18,8 +20,11 @@ namespace MainProg
 				helper.NotEnoughRam(); // If there is not enough RAM, this method will be called and the program will exit.
 			}
 			string OutPutName = String.Empty;
-			Aardvark.OpenImageDenoise.Device device = new Aardvark.OpenImageDenoise.Device();
-			
+			Aardvark.Base.Aardvark.Init(); // Initialize Aardvark for OpenImageDenoise
+
+
+
+
 			String path = Directory.GetCurrentDirectory();
             string OutDir = Directory.CreateDirectory(path + "/OutPut").FullName;
             Console.Write("How wide will the image be? ");

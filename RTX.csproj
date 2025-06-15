@@ -5,13 +5,14 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Platforms>AnyCPU;x64</Platforms>
+    <Platforms>x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Aardvark.OpenImageDenoise" Version="0.3.2" />
     <PackageReference Include="FSharp.Core" Version="9.0.300" />
     <PackageReference Include="Hardware.Info" Version="101.0.1" />
+    <PackageReference Include="inteltbb.redist.win" Version="2022.1.0.426" />
     <PackageReference Include="System.Drawing.Common" Version="9.0.0" />
   </ItemGroup>
 
