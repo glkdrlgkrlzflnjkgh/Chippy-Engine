@@ -12,10 +12,12 @@ namespace MainProg
         public static int samplesPerPixel = 0;
         static void Main(string[] args)
         {   if (Helper.GetRam() < 8192) { 
-               
-            }
+               Helper.NotEnoughRam(); // If there is not enough RAM, this method will be called and the program will exit.
+			}
             string OutPutName = String.Empty;
-            String path = Directory.GetCurrentDirectory();
+			Aardvark.OpenImageDenoise.Device device = new Aardvark.OpenImageDenoise.Device();
+			
+			String path = Directory.GetCurrentDirectory();
             string OutDir = Directory.CreateDirectory(path + "/OutPut").FullName;
             Console.Write("How wide will the image be? ");
             int imageWidth = int.Parse(Console.ReadLine());
@@ -90,7 +92,8 @@ namespace MainProg
             }
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"\nDONE! Output saved to '{OutPutName}.ppm'.");
-            Console.ResetColor();
+			
+			Console.ResetColor();
         }
     }
 }
