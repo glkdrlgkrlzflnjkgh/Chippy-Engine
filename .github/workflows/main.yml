@@ -52,7 +52,9 @@ jobs:
 
       - name: Verify artifact contents # ✅ Double-check that `.exe` exists
         run: dir ./build-output
-
+      - name: Move into repo directory
+        run: cd ${{ github.workspace }}
+        shell: pwsh
       - name: Add built artifacts and sync with local
         run: |
           git config --global user.name "GitHub Actions"
