@@ -44,7 +44,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Move into repo directory
-        run: cd ${{ github.workspace }}
+        run: cd ${{ github.workspace }}/.git
         shell: powershell
       - name: Download build artifacts # 🔥 Pulls the `.exe` back!
         uses: actions/download-artifact@v4
