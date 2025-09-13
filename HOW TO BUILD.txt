@@ -5,4 +5,4 @@
 5. find the .exe, double click it
 6. congrats! You've just built and ran my project!
 
-or you know.... just make a commit and push it to the repository, the build workflow will do the rest for you. (just do note the build step on it runs on my PC!)
+or you know.... just make a commit and push it to the repository, the build workflow will do the rest for you. (just do note the build step and the deploy step runs on my PC!)
